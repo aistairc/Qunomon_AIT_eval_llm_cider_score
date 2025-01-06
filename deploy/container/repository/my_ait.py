@@ -170,7 +170,7 @@ if not is_ait_launch:
     inventory_requirement_model = manifest_genenerator.format_ait_inventory_requirement(format_=['ALL'])
     manifest_genenerator.add_ait_inventories(name='llm_model_dir', 
                                               type_='model', 
-                                              description='事前にトレーニング済みの大規模言語モデルと、そのモデルの設定ファイルを保存したディレクトリ\n 例:T5, GPT-3\n モデルファイルは、config.json, model.safetensors, generation_config.json, special_tokens_map.json, tokenizer_config.json, tokenizer.jsonを含む', 
+                                              description='事前トレーニング済みの大規模言語モデルと設定ファイルのディレクトリ（例: HuggingfaceのT5）\n必要なファイルはconfig.json, model.safetensors, generation_config.json, special_tokens_map.json, tokenizer_config.json, tokenizer.jsonを含む', 
                                               requirement=inventory_requirement_model)
     manifest_genenerator.add_ait_measures(name='CIDEr_Score', 
                                            type_='float', 
@@ -179,7 +179,7 @@ if not is_ait_launch:
                                            min='0')
     manifest_genenerator.add_ait_resources(name='sample_data_csv',  
                                            type_='table', 
-                                           description='Perplexityスコアが最も低い10セットのデータサンプル')
+                                           description='CIDErスコアが最も低い10セットのデータサンプル')
     manifest_genenerator.add_ait_downloads(name='Log', 
                                             description='AIT実行ログ')
     manifest_genenerator.add_ait_downloads(name='eval_result', 
